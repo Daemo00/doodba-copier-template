@@ -136,8 +136,6 @@
       }}
       {%- else %}
 
-      {#- When removing crawlers for /, this router is the same as forbiddenCrawlers, so no need to duplicate #}
-      {%- if paths_without_crawlers != ["/"] or domain_group.path_prefixes %}
       {#- Main router #}
       {{-
         router(
@@ -150,7 +148,6 @@
           ],
         )
       }}
-      {%- endif %}
 
       {#- Longpolling router #}
       {%- if not domain_group.path_prefixes %}
